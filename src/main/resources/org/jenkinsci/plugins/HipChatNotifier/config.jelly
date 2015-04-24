@@ -11,7 +11,7 @@
   <f:entry title="Message Format (FAILED)" field="failedMessageFormat">
     <f:textbox default="${descriptor.defaultMessageFormat}"/>
   </f:entry>
-  <f:entry title="Message format" field="messageFormat">
+  <f:entry name="messageFormat" title="Message format" field="messageFormat">
       <select name="messageFormat" default="text">
           <option value="text">Plain text</option>
           <option value="html">HTML</option>
