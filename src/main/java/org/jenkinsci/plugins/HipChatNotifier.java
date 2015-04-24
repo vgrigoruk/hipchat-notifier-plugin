@@ -61,6 +61,7 @@ public class HipChatNotifier extends Notifier {
     public final String jobToken;
     public final String successMessageFormat;
     public final String failedMessageFormat;
+    public final String messageFormat;
     public final boolean postSuccess;
     public final boolean notifySuccess;
     public final boolean postFailed;
@@ -73,6 +74,7 @@ public class HipChatNotifier extends Notifier {
             String jobToken,
             String successMessageFormat,
             String failedMessageFormat,
+            String messageFormat,
             boolean postSuccess,
             boolean notifySuccess,
             boolean postFailed,
@@ -88,6 +90,7 @@ public class HipChatNotifier extends Notifier {
         this.successMessageFormat = successMessageFormat;
         this.failedMessageFormat = failedMessageFormat;
         this.messageFromFile = messageFromFile;
+        this.messageFormat = messageFormat;
     }
 
     public String getRoom() {
@@ -148,7 +151,8 @@ public class HipChatNotifier extends Notifier {
                     new NotifyMessage(
                             NotifyMessage.BackgroundColor.get(build.getResult().color),
                             buildMessage(build, listener),
-                            shouldNotify(build)
+                            shouldNotify(build),
+                            messageFormat
                     )
             );
             if (notifyResult) {

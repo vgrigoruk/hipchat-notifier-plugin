@@ -17,17 +17,18 @@ public class NotifyMessage {
     private final BackgroundColor bgColor;
     private final String message;
     private final boolean notify;
+    private final String messageFormat;
 
-    public NotifyMessage(BackgroundColor bgColor, String message, boolean notify) {
+    public NotifyMessage(BackgroundColor bgColor, String message, boolean notify, String messageFormat) {
         this.bgColor = bgColor;
         this.message = message;
         this.notify = notify;
-
+        this.messageFormat = messageFormat;
     }
 
-    public NotifyMessage(String message) {
-        this(BackgroundColor.red, message, true);
-    }
+//    public NotifyMessage(String message) {
+//        this(BackgroundColor.red, message, true,);
+//    }
 
     public BackgroundColor getBackgroundColor() {
         return bgColor;
@@ -42,7 +43,7 @@ public class NotifyMessage {
         map.put("color", this.getBackgroundColor().name());
         map.put("message", this.getMessage());
         map.put("notify", Boolean.valueOf(this.notify));
-        map.put("message_format", "text");
+        map.put("message_format", String.valueOf(this.messageFormat));
         return JSONObject.fromObject(map);
     }
 
